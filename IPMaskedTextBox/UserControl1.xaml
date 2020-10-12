@@ -8,7 +8,17 @@
              x:Name="control" BorderBrush="#7a7a7a"
              Background="White"
              BorderThickness="1" >
-
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0"></Setter>
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="Margin" Value="0"></Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="0"></Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid x:Name="wrapGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" Name="column"/>

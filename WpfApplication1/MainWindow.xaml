@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <iPmaskedtextbox:IPMaskedTextBox IP="{Binding IP,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <iPmaskedtextbox:IPMaskedTextBox IP="{Binding IP,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="300" IsEnabled="False"/>
         <Button Width="100" Height="20" HorizontalAlignment="Left" Content="{Binding IP}"
                 Command="{Binding Command}"></Button>
     </Grid>

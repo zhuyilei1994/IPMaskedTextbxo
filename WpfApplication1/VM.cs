@@ -14,9 +14,10 @@ namespace WpfApplication1
 
         public VM()
         {
-            IP = "21.32.33.43";
+            IP = "1.23.4.22";
             Command=new RelayCommand(ExecuteCommand);
         }
+
         public RelayCommand Command { get; }
 
         private void ExecuteCommand()
@@ -36,5 +37,10 @@ namespace WpfApplication1
             set { Set(ref _ip , value); }
             get { return _ip; }
         }
+    }
+
+    class MyClass
+    {
+        
     }
 }

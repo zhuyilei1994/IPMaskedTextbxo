@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Media;
+using System.Text.RegularExpressions;
 using System.Windows.Data;
 using IPMaskedTextBox.Annotations;
 
@@ -16,6 +17,8 @@ namespace IPmaskedtextbox
     {
         private const string ErrorMessage = "Please specify a value between 0 and 255.";
 
+        private const string IpRegex =
+            @"^(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|[0-1]\d{2}|[1-9]?\d)$";
         public static readonly DependencyProperty IPProperty = DependencyProperty.Register(
             "IP", typeof(string), typeof(IPMaskedTextBox), new PropertyMetadata(default(string), IPPropertyChanged));
 
@@ -29,6 +32,12 @@ namespace IPmaskedtextbox
         private static void IPPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (!_doCallBacked) return;
+            Regex regex=new Regex(IpRegex);
+            if(!regex.IsMatch((string)e.NewValue))
+            {
+                //MessageBox.Show("error ip");
+                return;
+            }
             var str = ((string) e.NewValue).Split('.');
             if (str.Length == 4)
             {
